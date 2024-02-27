@@ -5,31 +5,13 @@ def input():
     return sys.stdin.readline().strip()
  
 def solve(n,k):
-    s = sum(k)
-    if s % 3 == 0:
-        print(0)
-        return
-    remainder = s % 3
-    lst = [x%3 for x in k ]
-    if remainder == 1:
-        if 1 in lst:
-            print(1)
-            return
+    s = 0
+    for i in k:
+        if i < 0:
+            s += -1 * i
         else:
-            print(2)
-    
-    if  remainder == 2:
-        if 2 in lst:
-            print(1)
-            return
-        else:
-            print(1)
-    
-            
-    
-                
-        
-   
+            s += i
+    print(s)
 
 def main():
     t = int(input())  
