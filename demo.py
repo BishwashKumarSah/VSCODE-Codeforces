@@ -5,22 +5,30 @@ def input():
     return sys.stdin.readline().strip()
 
 
-def solve(n,lst):
-    prev = lst[0][1]
-    ans = lst[0][1]
-    for i in range(1,len(lst)):
-        prev = prev + lst[i][1] - lst[i][0]
-        ans = max(ans,prev)
-    print(ans)
+def solve(lst):
+    lst.sort()
+    print(lst)
+    maxEle = lst[-1]
+    i,j = 0,0
+    val = 0
+    while j < len(lst):
+        val += lst[j]
+        if val < maxEle:
+            j += 1
+        else:
+            if val == maxEle:
+                print(lst[i:j+1])
+                return
+            while val > maxEle:               
+                val -= lst[i]
+                i += 1
+                if val == maxEle:
+                    print(lst[i:j+1])
+                    return
 
 def main():
-    n = int(input())
-    lst = []
-    while n > 0:
-        l = list(map(int,input().split()))
-        lst.append(l)
-        n -= 1
-    solve(n,lst)
+    lst = list(map(int,input().split()))
+    solve(lst)
     
 if __name__ == "__main__":
     if path.exists("input.txt"):
