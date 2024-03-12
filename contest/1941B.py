@@ -5,14 +5,20 @@ def input():
     return sys.stdin.readline().strip()
 
 def solve(n,arr):
-   
-    
-    for i in range(1,len(arr),2):
-        if i + 2 < len(arr): 
-            if abs(arr[i+2] - arr[i]) != 2 :
-                print("NO")
-                return
-    print("YES")
+    for i in range(1,len(arr)-1):
+        if  arr[i] >= arr[i-1] *2 and arr[i+1] >= arr[i-1]:
+            arr[i] -= 2 * arr[i-1]
+            arr[i+1] -= arr[i-1]
+            arr[i-1] = 0
+    for i in arr:
+        if i != 0:
+            print("NO")
+            return   
+    print("YES")    
+        
+        
+        
+        
 def main():
     t = int(input())
     while t > 0:
