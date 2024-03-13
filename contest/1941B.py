@@ -2,6 +2,7 @@ import sys
 from os import path
 
 def input():
+    # return sys.stdin.readline().strip()
     return sys.stdin.readline().strip()
 
 def solve(n,arr):
