@@ -24,6 +24,7 @@ def main():
     t = int(input())
     while t > 0:
         n = int(input())
+        a = int(input())
         arr= list(map(int,input().split()))
         solve(n,arr)
         t -= 1
