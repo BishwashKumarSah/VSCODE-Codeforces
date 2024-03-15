@@ -16,8 +16,14 @@ def solve(n,arr):
             print("NO")
             return   
     print("YES")    
-        
-        
+    const employeesData = [
+
+{
+    id:1,
+    firstName:'Rohan',
+    lastName:''
+}
+    ]      
         
         
 def main():
