@@ -5,22 +5,18 @@ import math
 def input():
     return sys.stdin.readline().strip()
 
-def solve(n):
-    if n < 10:
-        print(n,end=" ")
+def solve(n,s):
+    if len(s) == n:  
+        print(s)      
         return 
-    digit = n % 10
-    n = n//10
-    solve(n)
-    print(digit,end=" ")
+    solve(n,s = s+"0")
+    solve(n,s = s+"1")
 
 def main():
-    n = int(input())
-    while n > 0:
-        a = int(input())
-        solve(a)
-        print(end="\n")
-        n -= 1
+    n = int(input())   
+    lst = list(map(int,input().split()))
+    solve(n,"")     
+        
     
 
 if __name__ == "__main__":

@@ -1,26 +1,24 @@
 import sys
 from os import path
 import math
+import decimal
 
 def input():
     return sys.stdin.readline().strip()
 
-def solve(n):
-    if n < 10:
-        print(n,end=" ")
-        return 
-    digit = n % 10
-    n = n//10
-    solve(n)
-    print(digit,end=" ")
+def solve():
+    
 
+    print(2**2*(10**5))
+
+    
+    
+    
 def main():
-    n = int(input())
-    while n > 0:
-        a = int(input())
-        solve(a)
-        print(end="\n")
-        n -= 1
+    # cook your dish here
+    
+    solve()
+        
     
 
 if __name__ == "__main__":

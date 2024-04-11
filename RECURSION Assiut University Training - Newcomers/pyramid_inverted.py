@@ -5,22 +5,20 @@ import math
 def input():
     return sys.stdin.readline().strip()
 
-def solve(n):
-    if n < 10:
-        print(n,end=" ")
-        return 
-    digit = n % 10
-    n = n//10
-    solve(n)
-    print(digit,end=" ")
+def solve(n,s,i):
+    if i == 0:
+        return
+    s1 = s[1:len(s)-1]
+    print(" " * (n-i) + s)
+    solve(n,s1,i-1)
 
 def main():
     n = int(input())
-    while n > 0:
-        a = int(input())
-        solve(a)
-        print(end="\n")
-        n -= 1
+    # s = "*" * ((n-1) * 2 + 1)  
+    s = "*" * (2*n - 1)  
+     
+    solve(n,s,n)     
+        
     
 
 if __name__ == "__main__":
