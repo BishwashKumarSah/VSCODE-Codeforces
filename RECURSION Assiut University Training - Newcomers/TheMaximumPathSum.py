@@ -10,7 +10,8 @@ def solve(r,c,R,C,matrix,ans,val):
     if c == C:
         return
     val += matrix[r][c]
-    ans[0] = max(ans[0],val) 
+    if r == R-1 and c == C-1:        
+        ans[0] = max(ans[0],val) 
     solve(r+1,c,R,C,matrix,ans,val)
     solve(r,c+1,R,C,matrix,ans,val)
     val -= matrix[r][c]
