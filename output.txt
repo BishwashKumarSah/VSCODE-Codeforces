@@ -1,2 +1,1 @@
-1048575
-3
+rev3 is smaller
