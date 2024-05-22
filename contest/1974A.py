@@ -6,26 +6,33 @@ from os import path
 def input():
     return  sys.stdin.readline().rstrip("\r\n")
 
-def solve(n,s):
-    distn = sorted(set(s))
-    r = ''.join(distn)    
-    char_map = {}
-    n = len(r)
-    for i in range(n):
-        char_map[r[i]] = r[n -1-i]  
-    print(char_map)  
-    enc = ''.join(char_map[char] for char in s)    
-    print(enc) 
+def solve(x,y):
     
+    if y == 0:
+        print(math.ceil(x/15))
+        return
+    elif x == 0:
+        print(math.ceil(y/2))
+        return
+    
+    y_valCeil = math.ceil(y/2)
+    y_valInt = y//2
+    total_area = (15*y_valCeil)
+    remaining = (total_area - (4*y))
+    
+    if x > remaining:
+        x = x - remaining
+        print(y_valCeil + math.ceil(x/15))
+    else:
+        print(y_valCeil)    
     
     
     
 def main():        
     t = int(input())
     for _ in range(t):
-        n = int(input())
-        s = input()
-        solve(n,s)
+        x,y = map(int,input().split())
+        solve(x,y)
 if __name__ == "__main__":
     if path.exists("input.txt"):
         sys.stdin = open("input.txt","r")
