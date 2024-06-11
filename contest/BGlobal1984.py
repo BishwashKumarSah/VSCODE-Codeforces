@@ -9,18 +9,28 @@ def input():
 def solve(n,lst):
     c = 0
     
-    for i in range(len(lst)): 
-        if lst[i] == 0:
-            if i == len(lst) - 1:
-                c = abs(c)            
-                continue       
-        if lst[i] < 0:            
+    for i in range(n):
+        if c + lst[i] >= 0:
             c += lst[i]
         else:
-            c = abs(c)
-            c += lst[i]
-    
-    print(abs(c))
+            c = abs(c + lst[i])
+    import sys
+import collections
+import math 
+from os import path
+
+def input():
+    return  sys.stdin.readline().rstrip("\r\n")
+
+def solve(n,lst):
+    def recu(i,lst,c):
+       if i == len(lst):
+           return c
+       val1 = recu(i+1,lst,c+lst[i])
+       val2 = recu(i+1,lst,abs(c+lst[i]))
+       return max(val1,val2)
+    ans= recu(0,lst,0)
+    print(ans)
         
     
     
@@ -36,3 +46,7 @@ if __name__ == "__main__":
         sys.stdin = open("input.txt","r")
         sys.stdout = open("output.txt","w")
     main()
+    
+        
+    
+ 
