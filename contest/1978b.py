@@ -36,7 +36,7 @@ def solve(n,a,b):
 def main():
     t = int(input())
     for _ in range(t):
-        n,a,b = map(int,input().split())
+        n,a,b = map(int,input().split())        
         solve(n,a,b)
 
 if __name__ == "__main__":
