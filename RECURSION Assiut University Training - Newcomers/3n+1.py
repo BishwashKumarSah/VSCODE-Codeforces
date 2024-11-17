@@ -24,6 +24,6 @@ def main():
 
 if __name__ == "__main__":
     if path.exists("input.txt"):
-        sys.stdin = open("input.txt","r")
-        sys.stdout = open("output.txt","w")
+        sys.stdin = open("inputt.txt","r")
+        sys.stdout = open("outputt.txt","w")
     main()
