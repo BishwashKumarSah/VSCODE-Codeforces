@@ -8,19 +8,39 @@ def input():
 
 
 def solve(n):
-    if n == 2 or n == 3:
+    even = []
+    odd = []
+    not_any = []
+    common = []
+    for i in range(1,n+1):
+        if i % 2 == 0 and i % 3 == 0:
+            common.append(i)
+        elif i % 2 == 0:
+            even.append(i)
+        elif i % 3 == 0:
+            odd.append(i)
+        else:
+            not_any.append(i)
+    if n <= 4:
         print(-1)
         return 
+    lst = []
     
     if n == 5:
-        print(*[1,3,5,4,2])
+        print(*[2, 4, 5, 1, 3 ])
+        return
+        
     
-    lst = [0] * 2000000    
-    nn = len(lst)
-    for i in range(2,nn):
-        if lst[i] > 0:
-            continue                     
-        for j in range(i + 2,nn,)
+    for i in not_any:
+        lst.append(i)
+    for i in odd:
+        lst.append(i)
+    for i in common:
+        lst.append(i)
+    for i in even[::-1]:
+        lst.append(i)
+ 
+    print(*lst)
 
 def main():
     t = int(input())
