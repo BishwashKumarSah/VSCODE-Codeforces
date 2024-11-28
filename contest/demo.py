@@ -19,6 +19,7 @@ def solve(n, k):
     
     n2 = []
     for i in range(1,n+1):        n2.append(i%k)
+    
 
     for i in range(n):
         if new_lst[i] == n2[i]:
@@ -28,12 +29,12 @@ def solve(n, k):
             else:
                 lst[i],lst[i-1] = lst[i-1],lst[i]
                 new_lst[i],new_lst[i-1] = new_lst[i-1],new_lst[i]
-    dic = set()
-    for i in lst:
-        if i in dic:
+    
+    for i in range(0,len(new_lst)):
+        if new_lst[i] == n2[i]:
             print(-1)
-            return 
-        dic.add(i)
+            return
+        
     print(*lst)
    
 
