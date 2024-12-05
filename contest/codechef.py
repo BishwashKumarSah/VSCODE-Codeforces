@@ -7,43 +7,41 @@ def input():
     return sys.stdin.readline().strip()
 
 
-def solve(n, k):
-    if n == 1 or k == 1:
-        print(-1)
-        return
-    lst = []
-    for i in range(1,n+1):        lst.append(i)
-        
-    new_lst = []
-    for i in range(1,n+1):        new_lst.append(i % k)
-    
-    n2 = []
-    for i in range(1,n+1):        n2.append(i%k)
-    
 
-    for i in range(n):
-        if new_lst[i] == n2[i]:
-            if i + 1 < n:
-                lst[i],lst[i+1] = lst[i+1],lst[i]
-                new_lst[i],new_lst[i+1] = new_lst[i+1],new_lst[i]
-            else:
-                lst[i],lst[i-1] = lst[i-1],lst[i]
-                new_lst[i],new_lst[i-1] = new_lst[i-1],new_lst[i]
+def solve(n,lst):   
+    total_sum = 0
+    for i in lst:
+        total_sum += i    
     
-    for i in range(0,len(new_lst)):
-        if new_lst[i] == n2[i]:
-            print(-1)
-            return
-        
-    print(*lst)
    
+    if total_sum % n != 0:
+        print("NO")
+        return 
+    
+    
+    target = total_sum // n
+    
+    
+    diff = [lst[i] - target for i in range(n)]
+    
+    
+    total_shift_performed = 0
+    for d in diff:
+        total_shift_performed += d
+        
+        if total_shift_performed < 0:
+            print("NO")
+            return
+    
+    print("YES")
 
 def main():
     t = int(input())
     for _ in range(t):
-        n,k = (map(int, input().split()))
+        n = int(input())
+        lst = list(map(int, input().split()))
+        solve(n, lst)
         
-        solve(n, k)
 
 if __name__ == "__main__":
     if path.exists("input.txt"):
