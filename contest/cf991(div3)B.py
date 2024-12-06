@@ -19,21 +19,26 @@ def solve(n,lst):
         return 
     
     
-    target = total_sum // n
-    
-    
-    diff = [lst[i] - target for i in range(n)]
-    
-    
-    total_shift_performed = 0
-    for d in diff:
-        total_shift_performed += d
+    oddCount = 0
+    evenCount = 0
+    evenVal = 0
+    oddVal = 0
+    for i in range(len(lst)):
+        if i % 2 == 0:
+            evenCount += 1
+            evenVal += lst[i]
+        else:
+            oddCount += 1
+            oddVal += lst[i]
+    avgEven = evenVal/evenCount
+    avgOdd = oddVal/oddCount
+    if avgEven == avgOdd:
+        print("YES")
+        return
+    print("NO")
         
-        if total_shift_performed < 0:
-            print("NO")
-            return
     
-    print("YES")
+    
 
 def main():
     t = int(input())
